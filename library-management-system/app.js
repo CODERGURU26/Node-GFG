@@ -70,3 +70,7 @@ app.post("/delete" , (req , res)=>{
     res.render("home" , {data : books})
 })
 
+app.listen(PORT , ()=>{
+    console.log(`App Is Running on ${PORT}`)
+})
+
