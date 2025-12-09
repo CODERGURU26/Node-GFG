@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Info</title>
+</head>
+<body>
+    <h1>User Information</h1>
+
+    <% if (user) { %>
+        <p>Name: <%= user.name %></p>
+        <p>Roll Number: <%= user.Roll_number %></p>
+        <p>Address: <%= user.Address %></p>
+        <a href="/">Back to Home</a>
+    <% } else { %>
+        <p>No user logged in.</p>
+        <a href="/">Back to Home</a>
+    <% } %>
+</body>
+</html>
