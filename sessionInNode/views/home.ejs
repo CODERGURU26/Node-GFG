@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session Demo</title>
+</head>
+<body>
+    <h1>Session Demo App</h1>
+
+    <% if (user) { %>
+        <h2>Welcome, <%= user.name %>!</h2>
+        <p>Roll Number: <%= user.Roll_number %></p>
+        <p>Address: <%= user.Address %></p>
+        <form action="/logout" method="get">
+            <button type="submit">Logout</button>
+        </form>
+    <% } else { %>
+        <form action="/login" method="get">
+            <button type="submit">Login</button>
+        </form>
+    <% } %>
+</body>
+</html>

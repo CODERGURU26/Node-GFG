@@ -18,6 +18,10 @@ const user = {
     Address : 'Pune'
 }
 
+app.get('/' , (req , res)=>{
+    res.send("Welcome To The SessionDemo!")
+})
+
 app.get('/login' , (req , res)=>{
     req.session.user = user
     req.session.save()
@@ -32,6 +36,9 @@ app.get('/user' , (req , res)=>{
 app.get('/logout' , (req , res)=>{
     req.session.destroy()
     res.send("You Are Logged Out")
+    res.redirect('/')
 })
 
-app
+app.listen(PORT , ()=>{
+    console.log(`App Is Running On http://localhost:${PORT}`)
+})
