@@ -29,7 +29,7 @@ app.get('/' , (req , res)=>{
 })
 
 app.post('/' , (req , res)=>{
-    const newBooks = [
+    const newBooks = 
         {
             bookName : req.body.bookName,
             bookAuthor : req.body.bookAuthor,
@@ -37,7 +37,7 @@ app.post('/' , (req , res)=>{
             bookPrice : req.body.bookPrice,
             bookState : "Available"
         }
-    ]
+    
 
     books.push(newBooks)
     res.render("home" , {data : books})
@@ -71,6 +71,6 @@ app.post("/delete" , (req , res)=>{
 })
 
 app.listen(PORT , ()=>{
-    console.log(`App Is Running on ${PORT}`)
+    console.log(`App Is Running on http://localhost:${PORT}`)
 })
 
