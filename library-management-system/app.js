@@ -54,3 +54,13 @@ app.post('/issue' , (req , res)=>{
     res.render("home" , {data : books})
 })
 
+app.post('/return' , (req , res)=>{
+    const requestedBookName = req.body.bookName
+    books.forEach(book =>{
+        if(book.bookName === requestedBookName){
+            book.bookState = "Available"
+        }
+    })
+    res.render("home" , {data : books})
+})
+
