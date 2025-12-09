@@ -28,3 +28,18 @@ app.get('/' , (req , res)=>{
     res.render("home" , {data : books})
 })
 
+app.post('/' , (req , res)=>{
+    const newBooks = [
+        {
+            bookName : req.body.bookName,
+            bookAuthor : req.body.bookAuthor,
+            bookPages : req.body.bookPages,
+            bookPrice : req.body.bookPrice,
+            bookState : "Available"
+        }
+    ]
+
+    books.push(newBooks)
+    res.render("home" , {data : books})
+})
+
