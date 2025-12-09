@@ -29,3 +29,9 @@ app.get('/user' , (req , res)=>{
     res.send(sessionUser)
 })
 
+app.get('/logout' , (req , res)=>{
+    req.session.destroy()
+    res.send("You Are Logged Out")
+})
+
+app
