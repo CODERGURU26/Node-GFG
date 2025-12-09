@@ -64,3 +64,9 @@ app.post('/return' , (req , res)=>{
     res.render("home" , {data : books})
 })
 
+app.post("/delete" , (req , res)=>{
+    const requestedBookName = req.body.bookName
+    books = books.filter(book => book.bookName !== requestedBookName)
+    res.render("home" , {data : books})
+})
+
