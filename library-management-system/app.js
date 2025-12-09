@@ -43,3 +43,14 @@ app.post('/' , (req , res)=>{
     res.render("home" , {data : books})
 })
 
+app.post('/issue' , (req , res)=>{
+    const requestedBookName = req.body.bookName
+    books.forEach(book => {
+        if(book.bookName === requestedBookName){
+            book.bookState = "Issued"
+        }
+    })
+
+    res.render("home" , {data : books})
+})
+
