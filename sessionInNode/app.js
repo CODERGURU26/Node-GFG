@@ -24,3 +24,8 @@ app.get('/login' , (req , res)=>{
     return res.send("You Are Logged In")
 })
 
+app.get('/user' , (req , res)=>{
+    const sessionUser = req.session.user
+    res.send(sessionUser)
+})
+
