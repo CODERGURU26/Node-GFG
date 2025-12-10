@@ -42,3 +42,14 @@ app.post('/' , (req , res)=>{
     users.push(newUser)
     res.render("home" , {data : users})
 })
+
+app.post('/update' , (req , res)=>{
+    users.forEach(user =>{
+        if(user.userId === req.body.userId){
+            user.userName = req.body.userName
+            user.userEmail = req.body.userEmail
+            user.userAge = req.body.userAge
+        }
+    })
+    res.render("home" , {data : users})
+})
