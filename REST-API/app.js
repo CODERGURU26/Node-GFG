@@ -1,29 +1,48 @@
-const express = require('express')
-const app = express()
-const PORT = 3000
+const express = require('express');
+const app = express();
+const PORT = 3000;
 
-app.use(express())
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.get('/users' ,(req , res)=>{
-    res.json({message : "Returning List Of Users"})
-})
+let users = [
+    { id: 1, name: 'Amar', email: 'amar@example.com' },
+    { id: 2, name: 'Gururaj', email: 'guru@example.com' }
+];
 
-app.post('/users' , (req , res)=>{
-    const newUser = req.body
-    res.json({message : "User Created!" , user : newUser})
-})
+// Home page: list users
+app.get('/', (req, res) => {
+    res.render('users', { users });
+});
 
-app.put('/users/:id' , (req, res)=>{
-    const userId = req.params.id
-    const updateUser = req.body
-    res.json({message : `User With ID ${userId} updated!`, updateUser})
-})
+// Add user
+app.post('/users', (req, res) => {
+    const newUser = {
+        id: users.length + 1,
+        name: req.body.name,
+        email: req.body.email
+    };
+    users.push(newUser);
+    res.redirect('/');
+});
 
-app.delete('/users/:id' , (req , res)=>{
-    const userId = req.params.id
-    res.json({message : `User With ID ${userId} Deleted!`})
-})
+// Update user
+app.post('/users/update/:id', (req, res) => {
+    const userId = parseInt(req.params.id);
+    users = users.map(user =>
+        user.id === userId ? { ...user, name: req.body.name, email: req.body.email } : user
+    );
+    res.redirect('/');
+});
 
-app.listen(PORT , ()=>{
-    console.log(`App Is Running on http://localhost:${PORT}`)
-})
+// Delete user
+app.post('/users/delete/:id', (req, res) => {
+    const userId = parseInt(req.params.id);
+    users = users.filter(user => user.id !== userId);
+    res.redirect('/');
+});
+
+app.listen(PORT, () => {
+    console.log(`App Is Running on http://localhost:${PORT}`);
+});
