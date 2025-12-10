@@ -23,8 +23,22 @@ let users = [
     {
         userId : "3",
         userName : "Pooja Sharma",
-        userName : "only4pooja@gmail.com",
+        userEmail : "only4pooja@gmail.com",
         userAge : "21"
     }
 ]
 
+app.get('/' , (req , res)=>{
+    res.render("home" , {data : users})
+})
+
+app.post('/' , (req , res)=>{
+    const newUser = {
+        userId : req.body.userId,
+        userName : req.body.userName,
+        userEmail : req.body.userEmail,
+        userAge : req.body.userAge
+    }
+    users.push(newUser)
+    res.render("home" , {data : users})
+})
