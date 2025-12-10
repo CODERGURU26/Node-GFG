@@ -53,3 +53,13 @@ app.post('/update' , (req , res)=>{
     })
     res.render("home" , {data : users})
 })
+
+app.post('/delete' , (req , res)=>{
+    const requestedUserId = req.body.userId
+    users = users.filter(user => user.userId !== requestedUserId)
+    res.render("home" , {data: users})
+})
+
+app.listen(PORT , ()=>{
+    console.log(`App Is Running On http://localhost${PORT}`)
+})
