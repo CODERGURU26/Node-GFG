@@ -15,7 +15,16 @@ let users = [
         userAge : "20"
     },
     {
-        
+        userId : "2",
+        userName : "Ishaa Sharma",
+        userEmail : "ishuu@gmail.com",
+        userAge : "19"
+    },
+    {
+        userId : "3",
+        userName : "Pooja Sharma",
+        userName : "only4pooja@gmail.com",
+        userAge : "21"
     }
-
 ]
+
