@@ -61,5 +61,5 @@ app.post('/delete' , (req , res)=>{
 })
 
 app.listen(PORT , ()=>{
-    console.log(`App Is Running On http://localhost${PORT}`)
+    console.log(`App Is Running On http://localhost:${PORT}`)
 })

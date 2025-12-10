@@ -13,13 +13,13 @@
         </tr>
         <% data.forEach(user => { %>
         <tr>
-            <td><%= user.userUniqueId %></td>
+            <td><%= user.userId %></td>
             <td><%= user.userName %></td>
             <td><%= user.userEmail %></td>
             <td><%= user.userAge %></td>
             <td>
                 <form action="/delete" method="post">
-                    <input type="hidden" name="userUniqueId" value="<%= user.userUniqueId %>">
+                    <input type="hidden" name="userId" value="<%= user.userId %>">
                     <button type="submit">Delete</button>
                 </form>
             </td>
@@ -29,7 +29,7 @@
      <!-- Add User Form -->
      <h2>Add User</h2>
      <form action="/" method="post">
-         <input type="text" placeholder="User Unique Id" name="userUniqueId" required>
+         <input type="text" placeholder="User  Id" name="userId" required>
          <input type="text" placeholder="User Name" name="userName" required>
          <input type="text" placeholder="User Email" name="userEmail" required>
          <input type="text" placeholder="User Age" name="userAge" required>
@@ -38,7 +38,7 @@
     <!-- Update User Form -->
     <h2>Update User</h2>
     <form action="/update" method="post">
-        <input type="text" placeholder="User Unique Id" name="userUniqueId" required>
+        <input type="text" placeholder="User  Id" name="userId" required>
         <input type="text" placeholder="User Name" name="userName">
         <input type="text" placeholder="User Email" name="userEmail">
         <input type="text" placeholder="User Age" name="userAge">
